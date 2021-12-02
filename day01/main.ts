@@ -13,9 +13,8 @@ function aoc(p: part, fn: (args: number[]) => number) {
 }
 
 function partOne(nums: number[]): number {
-
-    let counts: number = -1;
-    let previousNumber: number = 0;
+    let counts = -1;
+    let previousNumber = 0;
     for (const n of nums) {
         if (previousNumber < n) {
             counts++;
@@ -27,9 +26,8 @@ function partOne(nums: number[]): number {
 }
 
 function partTwo(nums: number[]): number {
-
-    let counts: number = -1;
-    let previousNumber: number = 0;
+    let counts = -1;
+    let previousNumber = 0;
     for (let i = 0; i < nums.length - 2; i++) {
         const n = nums[i] + nums[i+1] + nums[i+2];
         if (previousNumber < n) {
@@ -45,8 +43,7 @@ async function main() {
     const startTime = performance.now();
 
     const input = await Deno.readTextFile("./input.txt");
-    const nums: number[] = input.
-                            split("\n").map(n => parseInt(n));
+    const nums = input.split("\n").map(n => parseInt(n));
 
     aoc('one', partOne)(nums);
     aoc('two', partTwo)(nums);
